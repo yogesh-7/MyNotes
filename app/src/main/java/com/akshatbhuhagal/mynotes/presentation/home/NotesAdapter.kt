@@ -2,7 +2,6 @@ package com.akshatbhuhagal.mynotes.presentation.home
 
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.akshatbhuhagal.mynotes.R
 import com.akshatbhuhagal.mynotes.data.local.entities.NoteEntity
+import kotlinx.android.synthetic.main.item_rv_notes.view.cardView
+import kotlinx.android.synthetic.main.item_rv_notes.view.imgNote
+import kotlinx.android.synthetic.main.item_rv_notes.view.tvDateTime
+import kotlinx.android.synthetic.main.item_rv_notes.view.tvDesc
+import kotlinx.android.synthetic.main.item_rv_notes.view.tvTitle
+import kotlinx.android.synthetic.main.item_rv_notes.view.tvWebLink
 import com.akshatbhuhagal.mynotes.util.extensions.makeGone
 import com.akshatbhuhagal.mynotes.util.extensions.makeInvisible
 import com.akshatbhuhagal.mynotes.util.extensions.makeVisible
@@ -49,10 +54,7 @@ class NotesAdapter : ListAdapter<NoteEntity, NotesAdapter.NotesViewHolder>(diffC
 
         if (item.color != null) {
             holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(item.color))
-        } else {
-            null
         }
-
         if (item.imgPath != null) {
             holder.itemView.imgNote.setImageBitmap(BitmapFactory.decodeFile(item.imgPath))
             holder.itemView.imgNote.makeVisible()
